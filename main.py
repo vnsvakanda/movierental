@@ -4,6 +4,7 @@
 from movie import Movie, PriceCode
 from rental import Rental
 from customer import Customer
+from price_code import PriceCode
 
 
 def make_movies():
