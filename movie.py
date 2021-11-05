@@ -12,11 +12,11 @@ class Movie:
     def get_title(self):
         return self.__title
 
-    def get_yesr(self):
+    def get_year(self):
         return self.__year
 
-    def get_genre(self):
-        return self.__genre
+    def get_genre(self, genre):
+        return genre in self.__genre
 
     def __str__(self):
         return self.__title

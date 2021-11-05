@@ -1,5 +1,5 @@
 from rental import Rental
-from movie import Movie, PriceCode
+from movie import Movie
 import logging
 
 
