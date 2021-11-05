@@ -1,4 +1,7 @@
 from enum import Enum
+from datetime import date
+from movie import *
+
 
 class PriceCode(Enum):
     """An enumeration for different kinds of movies and their behavior"""
@@ -18,3 +21,15 @@ class PriceCode(Enum):
         """Return the point of rental given by number of days."""
         point = self.value["frp"]  # the enum member's point formula'
         return point(days)
+
+    @classmethod
+    def price_code_for_movie(cls, movie: Movie):
+        # If the movie was released this year, it’s a New Release
+        if date.today().year == movie.get_year():
+            return cls.new_release
+        # Otherwise, if one of the movie’s genre is “Children” it’s price code is “childrens”
+        elif movie.get_genre('Children'):
+            return cls.childrens
+        # Otherwise it’s a Normal movie
+        else:
+            return cls.normal
